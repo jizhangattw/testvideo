@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnichannel Test</title>
+</head>
+<body>
+
+<!-- 按钮用于启动聊天 -->
+<button id="startChatButton">startChatButton</button>
+
+<!-- 嵌入 Omnichannel SDK -->
+<!-- <script src="path_to_omnichannel_chat_sdk.js"></script> -->
+<script v2 id="Microsoft_Omnichannel_LCWidget" src="https://oc-cdn-ocprod.azureedge.net/livechatwidget/scripts/LiveChatBootstrapper.js" data-app-id="f15880c9-59e5-4e5e-845b-a054325c6101" data-lcw-version="prod" data-org-id="e3a7b63d-d355-ee11-a382-0022482cc91d" data-org-url="https://unqe3a7b63dd355ee11a3820022482cc-crm.omnichannelengagementhub.com"></script>
+<script>
+    function contextProvider() {              
+        return {
+            'Name': { 'value': 'Jian Zhang', 'isDisplayable': true },
+            'Email': { 'value': 'jizhang@thoughtworks.com', 'isDisplayable': true },
+            'Age': { 'value': 30, 'isDisplayable': true },
+        };
+    }
+    window.addEventListener("lcw:ready", function handleLivechatReadyEvent(){
+        Microsoft.Omnichannel.LiveChatWidget.SDK.setContextProvider(contextProvider);
+        Microsoft.Omnichannel.LiveChatWidget.SDK.startChat();
+    });
+</script>
+</body>
+</html>
